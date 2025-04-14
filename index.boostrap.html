@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan Bootstrap</title>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="#">LatihanBootstrap</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#hero">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#article">Artikel</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Galeri</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="hero" class="bg-light text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Selamat Datang!</h1>
+      <p class="lead">Ini adalah latihan pertama menggunakan Bootstrap</p>
+      <a href="#article" class="btn btn-primary">Lanjut Baca</a>
+    </div>
+  </section>
+
+  <section id="article" class="py-5">
+    <div class="container">
+      <h2>Bootstrap</h2>
+      <p>
+        Bootstrap adalah framework CSS yang membantu kita membuat website dengan cepat dan responsif.
+        Pada latihan ini, kamu akan belajar membuat layout dasar menggunakan struktur HTML dan Bootstrap.
+      </p>
+    </div>
+  </section>
+
+  <section id="gallery" class="bg-light py-5">
+    <div class="container">
+      <h2 class="mb-4">Galeri</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <img src="img/Framworks.gambar1.png" class="img-fluid rounded" alt="Frameworks.gambar1">
+        </div>
+        <div class="col-md-4">
+          <img src="img/Frameworks.gambar2.png" class="img-fluid rounded" alt="Frameworks.gambar2">
+        </div>
+        <div class="col-md-4">
+          <img src="img/Frameworks.gambar3.png" class="img-fluid rounded" alt="Frameworks.gambar3">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-primary text-white text-center py-3">
+    <p>&copy; 2025 Latihan Bootstrap | Dibuat oleh andriatma</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

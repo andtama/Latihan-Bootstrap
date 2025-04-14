@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Latihan Gallery Carousel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <header class="bg-dark text-white p-4 text-center">
+    <h1>Gallery Carousel</h1>
+  </header>
+
+  <main class="container my-5">
+    <section id="gallery">
+      <h1 class="mb-4 text-center">Gallery</h1>
+
+      <div id="carouselGallery" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          <div class="carousel-item active">
+            <img src="img/pantai1.jpg" class="d-block w-100" alt="pantai1">
+          </div>
+
+          <div class="carousel-item">
+            <img src="img/pantai2.jpg" class="d-block w-100" alt="pantai2">
+          </div>
+
+          <div class="carousel-item">
+            <img src="img/pantai3.jpg" class="d-block w-100" alt="pantai3">
+          </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselGallery" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Sebelumnya</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselGallery" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Selanjutnya</span>
+        </button>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <p>Latihan Bootstrap Carousel © 2025</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
