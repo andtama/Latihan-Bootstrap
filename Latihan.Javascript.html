@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Daily Journal</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #fafafa;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 18px 40px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+        }
+
+        .navbar .brand {
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+
+        .navbar .menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar .menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.15rem;
+            transition: color 0.2s;
+        }
+
+        .navbar .menu a:hover {
+            color: #e76f51;
+        }
+
+        .theme-switcher {
+            margin-left: 32px;
+            display: flex;
+            gap: 6px;
+        }
+
+        .theme-switcher button {
+            padding: 6px 14px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            background: #f0f0f0;
+            color: #333;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .theme-switcher button:hover {
+            background: #f9d9df;
+            color: #ba1c1c;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f9d9df;
+            padding: 60px 40px;
+            min-height: 350px;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1 1 350px;
+            min-width: 260px;
+            max-width: 650px;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #222;
+            margin-bottom: 18px;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .datetime {
+            font-size: 1.08rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-family: 'Consolas', 'Menlo', monospace;
+            letter-spacing: 1px;
+        }
+
+        .hero-img {
+            flex: 1 1 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 180px;
+        }
+
+        .hero-img img {
+            max-width: 300px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.13);
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 35px 15px;
+            }
+
+            .hero-img {
+                margin-top: 24px;
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .hero-img img {
+                max-width: 220px;
+            }
+
+            .theme-switcher {
+                margin-left: 12px;
+            }
+        }
+
+        body.dark-mode {
+            background: #23272f;
+            color: #e4e4e4;
+        }
+
+        body.dark-mode .navbar {
+            background: #191c20;
+            color: #f5f5f5;
+        }
+
+        body.dark-mode .navbar .brand {
+            color: #ffeedd;
+        }
+
+        body.dark-mode .navbar .menu a {
+            color: #e4e4e4;
+        }
+
+        body.dark-mode .navbar .menu a:hover {
+            color: #f9d9df;
+        }
+
+        body.dark-mode .theme-switcher button {
+            background: #24292f;
+            color: #ffeedd;
+        }
+
+        body.dark-mode .theme-switcher button:hover {
+            background: #3b2c38;
+            color: #e76f51;
+        }
+
+        body.dark-mode .hero {
+            background: #312c38;
+        }
+
+        body.dark-mode .hero-title {
+            color: #ffeedd;
+        }
+
+        body.dark-mode .hero-subtitle {
+            color: #e4e4e4;
+        }
+
+        body.dark-mode .datetime {
+            color: #ffeedd;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="brand">My Daily Journal</div>
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="#">Article</a>
+            <a href="#">Gallery</a>
+        </div>
+        <div class="theme-switcher">
+            <button id="darkBtn" title="Dark Mode">🌙 Dark</button>
+            <button id="lightBtn" title="Light Mode">☀️ Light</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-title">
+                Create Memories, Save Memories, Everyday
+            </div>
+            <div class="hero-subtitle">
+                Mencatat semua kegiatan sehari-hari yang ada tanpa terkecuali
+            </div>
+            <div class="datetime" id="datetime"></div>
+        </div>
+        <div class="hero-img">
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+                alt="Memories Photo">
+        </div>
+    </section>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const pad = n => n.toString().padStart(2, '0');
+            const dateStr = `${pad(now.getDate())}/${pad(now.getMonth() + 1)}/${now.getFullYear()}`;
+            const timeStr = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+            document.getElementById('datetime').textContent = `${dateStr} ${timeStr}`;
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        document.getElementById("darkBtn").onclick = function () {
+            document.body.classList.add("dark-mode");
+        }
+        document.getElementById("lightBtn").onclick = function () {
+            document.body.classList.remove("dark-mode");
+        }
+    </script>
+</body>
+
+</html>
